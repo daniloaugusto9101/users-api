@@ -30,3 +30,14 @@ export const insertUser = async (users) => {
   db.push(users);
   return users;
 };
+
+export const deleteUser = async (email) => {
+  const index = db.findIndex((item) => item.email === email);
+
+  if (index !== -1) {
+    db.splice(index, 1);
+    return true;
+  }
+
+  return false;
+};

@@ -16,3 +16,9 @@ export const addUser = async (req, res) => {
   const httpResponse = await UsersService.addUser(body);
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };
+
+export const deleteUser = async (req, res) => {
+  const { email } = req.params;
+  const httpResponse = await UsersService.deleteUser(email);
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};

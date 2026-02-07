@@ -31,3 +31,12 @@ export const addUser = async (body) => {
     : (response = await HttpHelper.notFound());
   return response;
 };
+
+export const deleteUser = async (email) => {
+  const data = await UsersRepository.deleteUser(email);
+  let response = null;
+  data
+    ? (response = await HttpHelper.ok(data))
+    : (response = await HttpHelper.notFound());
+  return response;
+};
