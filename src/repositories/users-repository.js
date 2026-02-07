@@ -14,7 +14,6 @@ let db = [
 ];
 
 export const findAllUsers = async () => {
-  // const users = await prisma.user.findMany();
   return db;
 };
 
