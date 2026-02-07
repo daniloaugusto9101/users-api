@@ -41,3 +41,14 @@ export const deleteUser = async (email) => {
 
   return false;
 };
+
+export const updateUser = async (email, body) => {
+  const index = db.findIndex((item) => item.email === email);
+
+  if (index !== -1) {
+    db[index] = body;
+    return db[index];
+  }
+
+  return false;
+};

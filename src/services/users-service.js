@@ -40,3 +40,12 @@ export const deleteUser = async (email) => {
     : (response = await HttpHelper.notFound());
   return response;
 };
+
+export const updateUser = async (email, body) => {
+  const data = await UsersRepository.updateUser(email, body);
+  let response = null;
+  data
+    ? (response = await HttpHelper.ok(data))
+    : (response = await HttpHelper.notFound());
+  return response;
+};
