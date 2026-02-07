@@ -49,11 +49,17 @@ export const findUsersById = async (id) => {
   });
 };
 
-export const insertUser = async (users) => {
-  db.push(users);
-  return users;
-};
+let currentId = 10;
 
+export const insertUser = async (user) => {
+  const newUser = {
+    id: currentId++,
+    ...user,
+  };
+
+  db.push(newUser);
+  return newUser;
+};
 export const deleteUser = async (email) => {
   const index = db.findIndex((item) => item.email === email);
 
