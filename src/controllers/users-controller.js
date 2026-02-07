@@ -11,6 +11,12 @@ export const getUserByEmail = async (req, res) => {
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };
 
+export const getUserById = async (req, res) => {
+  const { id } = req.params;
+  const httpResponse = await UsersService.getUserById(id);
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};
+
 export const addUser = async (req, res) => {
   const body = req.body;
   const httpResponse = await UsersService.addUser(body);

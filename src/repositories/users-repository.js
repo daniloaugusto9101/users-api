@@ -1,11 +1,13 @@
 let db = [
   {
+    id: 1,
     name: "Danilo2",
     email: "asd2@asd.com",
     type: "admin",
     password: "123456",
   },
   {
+    id: 2,
     name: "Danilo",
     email: "asd@asd.com",
     type: "admin",
@@ -20,6 +22,14 @@ export const findAllUsers = async () => {
 export const findUsersByEmail = async (email) => {
   return db.filter((item) => {
     if (item.email === email) {
+      return item;
+    }
+  });
+};
+
+export const findUsersById = async (id) => {
+  return db.filter((item) => {
+    if (item.id === id) {
       return item;
     }
   });

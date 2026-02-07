@@ -5,7 +5,9 @@ const router = Router();
 
 router.get("/users", UsersController.getUsers);
 
-router.get("/users/:email", UsersController.getUserByEmail);
+router.get("/users/email/:email", UsersController.getUserByEmail);
+
+router.get("/users/id/:id", UsersController.getUserById);
 
 router.post("/users", UsersController.addUser);
 

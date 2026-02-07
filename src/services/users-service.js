@@ -23,6 +23,25 @@ export const getUserByEmail = async (email) => {
   }
 };
 
+export const getUserById = async (id) => {
+  try {
+    const numericId = parseInt(id, 10);
+
+    if (isNaN(numericId)) {
+      return HttpHelper.badRequest({ error: "ID inválido" });
+    }
+
+    const data = await UsersRepository.findUsersById(numericId);
+    let response = null;
+    data.length > 0
+      ? (response = HttpHelper.ok(data))
+      : (response = HttpHelper.notFound());
+    return response;
+  } catch (error) {
+    return HttpHelper.serverError();
+  }
+};
+
 export const addUser = async (body) => {
   const data = await UsersRepository.insertUser(body);
   let response = null;
