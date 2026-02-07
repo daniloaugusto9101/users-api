@@ -13,6 +13,20 @@ let db = [
     type: "admin",
     password: "123456",
   },
+  {
+    id: 3,
+    name: "Danilo",
+    email: "asd@asd.com",
+    type: "admin",
+    password: "123456",
+  },
+  {
+    id: 4,
+    name: "Danilo",
+    email: "asd@asd.com",
+    type: "admin",
+    password: "123456",
+  },
 ];
 
 export const findAllUsers = async () => {
@@ -50,14 +64,27 @@ export const deleteUser = async (email) => {
 
   return false;
 };
-
-export const updateUser = async (email, body) => {
-  const index = db.findIndex((item) => item.email === email);
+export const deleteUserById = async (id) => {
+  const index = db.findIndex((item) => item.id === id);
 
   if (index !== -1) {
-    db[index] = body;
-    return db[index];
+    db.splice(index, 1);
+    return true;
   }
 
   return false;
+};
+
+export const updateUser = async (id, body) => {
+  const index = db.findIndex((item) => item.id === id);
+  if (index === -1) return false;
+
+  const { id: _, ...rest } = body;
+
+  db[index] = {
+    ...db[index],
+    ...rest,
+  };
+
+  return db[index];
 };

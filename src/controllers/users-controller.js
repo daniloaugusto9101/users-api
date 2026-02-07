@@ -29,9 +29,15 @@ export const deleteUser = async (req, res) => {
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };
 
+export const deleteUserById = async (req, res) => {
+  const { id } = req.params;
+  const httpResponse = await UsersService.deleteUserById(id);
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};
+
 export const updateUser = async (req, res) => {
-  const { email } = req.params;
+  const { id } = req.params;
   const body = req.body;
-  const httpResponse = await UsersService.updateUser(email, body);
+  const httpResponse = await UsersService.updateUser(id, body);
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };

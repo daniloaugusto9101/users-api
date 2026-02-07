@@ -60,8 +60,28 @@ export const deleteUser = async (email) => {
   return response;
 };
 
-export const updateUser = async (email, body) => {
-  const data = await UsersRepository.updateUser(email, body);
+export const deleteUserById = async (id) => {
+  const numericId = parseInt(id, 10);
+
+  if (isNaN(numericId)) {
+    return HttpHelper.badRequest({ error: "ID inválido" });
+  }
+  const data = await UsersRepository.deleteUserById(numericId);
+  let response = null;
+  data
+    ? (response = await HttpHelper.ok(data))
+    : (response = await HttpHelper.notFound());
+  return response;
+};
+
+export const updateUser = async (id, body) => {
+  const numericId = parseInt(id, 10);
+
+  if (isNaN(numericId)) {
+    return HttpHelper.badRequest({ error: "ID inválido" });
+  }
+
+  const data = await UsersRepository.updateUser(numericId, body);
   let response = null;
   data
     ? (response = await HttpHelper.ok(data))
