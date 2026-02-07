@@ -8,6 +8,11 @@ export const getUsers = async (req, res) => {
 export const getUserByEmail = async (req, res) => {
   const { email } = req.params;
   const httpResponse = await UsersService.getUserByEmail(email);
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};
 
+export const addUser = async (req, res) => {
+  const body = req.body;
+  const httpResponse = await UsersService.addUser(body);
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };

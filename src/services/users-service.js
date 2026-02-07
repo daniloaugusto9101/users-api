@@ -22,3 +22,12 @@ export const getUserByEmail = async (email) => {
     return HttpHelper.serverError();
   }
 };
+
+export const addUser = async (body) => {
+  const data = await UsersRepository.insertUser(body);
+  let response = null;
+  data
+    ? (response = await HttpHelper.ok(data))
+    : (response = await HttpHelper.notFound());
+  return response;
+};

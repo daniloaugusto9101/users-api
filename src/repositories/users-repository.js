@@ -25,3 +25,8 @@ export const findUsersByEmail = async (email) => {
     }
   });
 };
+
+export const insertUser = async (users) => {
+  db.push(users);
+  return users;
+};

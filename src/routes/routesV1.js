@@ -7,6 +7,8 @@ router.get("/users", UsersController.getUsers);
 
 router.get("/users/:email", UsersController.getUserByEmail);
 
+router.post("/users", UsersController.addUser);
+
 // router.post("/users", (req, res) => {
 //   const body = req.body;
 //   if (!body) {
