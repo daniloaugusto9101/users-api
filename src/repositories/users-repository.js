@@ -4,10 +4,7 @@ let db = [
   { 3: { Nome: "Cliente 3", Idade: "20" } },
 ];
 
-const getAll = () => {
+export const findAllUsers = async () => {
+  // const users = await prisma.user.findMany();
   return db;
-};
-
-module.exports = {
-  getAll,
 };

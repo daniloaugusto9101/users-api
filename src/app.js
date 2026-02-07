@@ -1,8 +1,17 @@
-const express = require("express")
-const router = require("./routes/routerApiV1")
+import express from "express";
+import routerV1 from "./routes/routesV1.js";
+import cors from "cors";
 
-const app = express()
-app.use(express.json())
-app.use(router)
+function createApp() {
+  const app = express();
 
-module.exports = app
+  app.use(express.json());
+
+  app.use("/api/v1.0", routerV1);
+
+  app.use(cors());
+
+  return app;
+}
+
+export default createApp;
