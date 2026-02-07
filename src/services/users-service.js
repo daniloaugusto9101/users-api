@@ -9,3 +9,16 @@ export const getUsers = async () => {
     : (response = HttpHelper.notFound());
   return response;
 };
+
+export const getUserByEmail = async (email) => {
+  try {
+    const data = await UsersRepository.findUsersByEmail(email);
+    let response = null;
+    data.length > 0
+      ? (response = HttpHelper.ok(data))
+      : (response = HttpHelper.notFound());
+    return response;
+  } catch (error) {
+    return HttpHelper.serverError();
+  }
+};

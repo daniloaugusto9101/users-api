@@ -1,10 +1,27 @@
 let db = [
-  { 1: { Nome: "Cliente 1", Idade: "20" } },
-  { 2: { Nome: "Cliente 2", Idade: "20" } },
-  { 3: { Nome: "Cliente 3", Idade: "20" } },
+  {
+    name: "Danilo2",
+    email: "asd2@asd.com",
+    type: "admin",
+    password: "123456",
+  },
+  {
+    name: "Danilo",
+    email: "asd@asd.com",
+    type: "admin",
+    password: "123456",
+  },
 ];
 
 export const findAllUsers = async () => {
   // const users = await prisma.user.findMany();
   return db;
+};
+
+export const findUsersByEmail = async (email) => {
+  return db.filter((item) => {
+    if (item.email === email) {
+      return item;
+    }
+  });
 };

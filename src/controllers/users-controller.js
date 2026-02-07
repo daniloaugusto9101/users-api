@@ -4,3 +4,10 @@ export const getUsers = async (req, res) => {
   const httpResponse = await UsersService.getUsers();
   return res.status(httpResponse.statusCode).json(httpResponse.body);
 };
+
+export const getUserByEmail = async (req, res) => {
+  const { email } = req.params;
+  const httpResponse = await UsersService.getUserByEmail(email);
+
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};

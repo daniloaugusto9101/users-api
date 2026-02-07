@@ -5,10 +5,7 @@ const router = Router();
 
 router.get("/users", UsersController.getUsers);
 
-// router.use("/", (req, res) => {
-//   res.status(200);
-//   res.send(`Bem vindo! Página inicial da API`);
-// });
+router.get("/users/:email", UsersController.getUserByEmail);
 
 // router.post("/users", (req, res) => {
 //   const body = req.body;
