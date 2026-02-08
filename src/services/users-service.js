@@ -4,9 +4,7 @@ import * as HttpHelper from "../utils/http-helper.js";
 export const getUsers = async () => {
   const data = await UsersRepository.findAllUsers();
   let response = HttpHelper.notFound();
-  data.length > 0
-    ? (response = HttpHelper.ok(data))
-    : (response = HttpHelper.notFound());
+  data.length > 0 ? (response = HttpHelper.ok(data)) : (response = HttpHelper.notFound());
   return response;
 };
 
@@ -14,9 +12,7 @@ export const getUserByEmail = async (email) => {
   try {
     const data = await UsersRepository.findUsersByEmail(email);
     let response = null;
-    data.length > 0
-      ? (response = HttpHelper.ok(data))
-      : (response = HttpHelper.notFound());
+    data.length > 0 ? (response = HttpHelper.ok(data)) : (response = HttpHelper.notFound());
     return response;
   } catch (error) {
     return HttpHelper.serverError();
@@ -33,9 +29,7 @@ export const getUserById = async (id) => {
 
     const data = await UsersRepository.findUsersById(numericId);
     let response = null;
-    data.length > 0
-      ? (response = HttpHelper.ok(data))
-      : (response = HttpHelper.notFound());
+    data.length > 0 ? (response = HttpHelper.ok(data)) : (response = HttpHelper.notFound());
     return response;
   } catch (error) {
     return HttpHelper.serverError();
@@ -45,18 +39,14 @@ export const getUserById = async (id) => {
 export const addUser = async (body) => {
   const data = await UsersRepository.insertUser(body);
   let response = null;
-  data
-    ? (response = await HttpHelper.ok(data))
-    : (response = await HttpHelper.notFound());
+  data ? (response = await HttpHelper.ok(data)) : (response = await HttpHelper.notFound());
   return response;
 };
 
 export const deleteUser = async (email) => {
   const data = await UsersRepository.deleteUser(email);
   let response = null;
-  data
-    ? (response = await HttpHelper.ok(data))
-    : (response = await HttpHelper.notFound());
+  data ? (response = await HttpHelper.ok(data)) : (response = await HttpHelper.notFound());
   return response;
 };
 
@@ -68,9 +58,7 @@ export const deleteUserById = async (id) => {
   }
   const data = await UsersRepository.deleteUserById(numericId);
   let response = null;
-  data
-    ? (response = await HttpHelper.ok(data))
-    : (response = await HttpHelper.notFound());
+  data ? (response = await HttpHelper.ok(data)) : (response = await HttpHelper.notFound());
   return response;
 };
 
@@ -83,8 +71,6 @@ export const updateUser = async (id, body) => {
 
   const data = await UsersRepository.updateUser(numericId, body);
   let response = null;
-  data
-    ? (response = await HttpHelper.ok(data))
-    : (response = await HttpHelper.notFound());
+  data ? (response = await HttpHelper.ok(data)) : (response = await HttpHelper.notFound());
   return response;
 };
