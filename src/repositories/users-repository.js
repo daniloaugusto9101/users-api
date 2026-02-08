@@ -1,35 +1,35 @@
 let db = [
   {
     id: 1,
-    name: "Danilo2",
-    email: "asd2@asd.com",
+    name: "Carlos Almeida",
+    email: "carlos.almeida@teste.com",
     type: "admin",
-    password: "123456",
+    password: "admin123",
   },
   {
     id: 2,
-    name: "Danilo",
-    email: "asd@asd.com",
-    type: "admin",
-    password: "123456",
+    name: "Mariana Souza",
+    email: "mariana.souza@teste.com",
+    type: "user",
+    password: "user123",
   },
   {
     id: 3,
-    name: "Danilo",
-    email: "asd@asd.com",
-    type: "admin",
-    password: "123456",
+    name: "Rafael Costa",
+    email: "rafael.costa@teste.com",
+    type: "user",
+    password: "rafael456",
   },
   {
     id: 4,
-    name: "Danilo",
-    email: "asd@asd.com",
+    name: "Ana Pereira",
+    email: "ana.pereira@teste.com",
     type: "admin",
-    password: "123456",
+    password: "ana789",
   },
 ];
 
-let currentId = 10;
+let currentId = 5;
 
 export const findAllUsers = async () => {
   return db;
